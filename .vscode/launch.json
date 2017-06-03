@@ -7,8 +7,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "启动程序",
-            "program": "${workspaceRoot}\\build\\dev-server.js"
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/app.js"
         }
     ]
 }
