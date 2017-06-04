@@ -2,17 +2,20 @@
   <div class="index-wrapper">
 
     <div class="block-wrapper">
-      <div class="block" v-for="n in 4">
+      <router-link :to="'/article/' + n" class="block" v-for="n in 4" :key="n">
         <img>
         <div class="des">
           <h6>Vue学习笔记</h6>
           <p>一些自己东风微风我发</p>
         </div>
-      </div>
+      </router-link>
     </div>
 
   </div>
 </template>
+
+<script>
+</script>
 
 <style lang="less">
 @import '../..//assets/less/function.less';
