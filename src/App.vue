@@ -9,6 +9,7 @@
 <script>
 import pagerHeader from '@/pages/common/header.vue'
 import pagerFooter from '@/pages/common/footer.vue'
+import iconfont from '@/assets/fonts/iconfont.css'
 export default {
   name: 'app',
   components: {

@@ -2,8 +2,9 @@
   <header class="header-wrapper">
     <div class="header-cont">
       <nav>
-        <a href="javascript:;" class="active">主页</a>
-        <a href="javascript:;">关于我</a>
+        <router-link to="/" active-class="" :class="{true: 'active'}[$route.path=='/']">主页</router-link>
+        <router-link to="/about">关于我</router-link>
+        <router-link to="/admin">后台管理</router-link>
         <a href="javascript:;">GitHub</a>
       </nav>
     </div>

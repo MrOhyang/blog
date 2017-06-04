@@ -9,6 +9,7 @@ import article from '@/pages/article/article.vue'
 
 // 后台管理页面相关
 import admin from '@/pages/admin/admin.vue'
+import blogList from '@/pages/admin/blogList.vue'
 
 Vue.use(Router);
 
@@ -29,7 +30,17 @@ const router = new Router({
     }
     ,{
       path: '/admin',
-      component: admin
+      component: admin,
+      children: [
+        {
+          path: 'bloglist',
+          component: blogList
+        }
+        ,{
+          path: '',
+          redirect: 'bloglist'
+        }
+      ]
     }
     ,{
       path: '*',  // 不存在的地址自动跳船

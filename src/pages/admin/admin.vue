@@ -2,6 +2,10 @@
   <div class="admin-wrapper">
     <!-- 左侧导航栏 -->
     <adminLeftBar></adminLeftBar>
+    <!-- 中间的内容 -->
+    <div class="admin-cont-wrapper">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -20,5 +24,8 @@ export default {
 
 <style lang="less">
 .admin-wrapper{
+  .admin-cont-wrapper{
+    padding-left: 280px;
+  }
 }
 </style>
