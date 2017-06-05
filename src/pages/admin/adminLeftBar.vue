@@ -3,7 +3,7 @@
     <div class="admin-leftbar small-scroll-y">
       <h6>内容管理</h6>
       <nav>
-        <router-link to="/admin/bloglist"><i class="iconfont icon-list"></i>博客/评论列表</router-link>
+        <router-link to="/admin/bloglist"><i class="iconfont icon-list"></i>博客内容管理</router-link>
         <router-link to="xxx"><i class="iconfont icon-edit"></i>新建博客</router-link>
       </nav>
       <h6>成员管理</h6>

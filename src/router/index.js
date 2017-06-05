@@ -43,7 +43,7 @@ const router = new Router({
       ]
     }
     ,{
-      path: '*',  // 不存在的地址自动跳船
+      path: '*',  // 不存在的地址自动跳转
       redirect: '/'
     }
   ]

@@ -25,6 +25,6 @@ app.use(async function (ctx, next) {
 router.use('/api', api.routes());
 app.use(router.routes());
 
-app.listen(8889, () => {
-  console.log('Koa is listening in 8889');
+app.listen(3001, () => {
+  console.log('Koa is listening in 3001');
 });
