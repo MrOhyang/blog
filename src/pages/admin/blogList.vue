@@ -84,9 +84,31 @@ import panelTable from '@/pages/admin/panelTable.vue'
 export default {
   name: 'blogList',
   data () {
-    return {};
+    return {
+      page: null,
+      count: null
+    };
   },
-  components: { panelTable }
+  components: { panelTable },
+  created () {
+    this.getBlogKindList();
+  },
+  methods: {
+    getBlogKindList (page = 1, count = 10) {
+      this.$http.post('/api/get_blog_king_list', {
+        page, count
+      }).then(res => {
+        if (res.data.code == 0) {
+          this.page = page;
+          this.count = count;
+        } else {
+          this.$warn(res.data.msg);
+        }
+      }).catch(error => {
+        this.$warn('出现异常');
+      });;
+    }
+  }
 };
 </script>
 
