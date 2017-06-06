@@ -11,14 +11,17 @@
             <th>创建时间</th>
             <th>操作</th>
           </tr>
-          <tr>
-            <td>Vue 相关</td>
-            <td>0</td>
-            <td>2017-06-05</td>
+          <tr v-for="kind in blog_kind_list.data">
+            <td>{{ kind.name }}</td>
+            <td>?</td>
+            <td>{{ kind.created_time }}</td>
             <td>
               <a href="javascript:;">编辑</a>
               <a href="javascript:;">删除</a>
             </td>
+          </tr>
+          <tr v-show="blog_kind_list.data.length <= 0">
+            <td colspan="4" class="text-center">无</td>
           </tr>
         </table>
       </panelTable>
@@ -36,9 +39,12 @@
             <th>修改时间</th>
             <th>操作</th>
           </tr>
-          <tr v-for="k in 3">
-            <td v-for="n in 4">{{ n }}</td>
-            <td>2017-06-04 22:58</td>
+          <tr v-for="blog in blog_list.data">
+            <td>{{ blog.title }}</td>
+            <td>?</td>
+            <td>?/?</td>
+            <td>{{ blog.created_time }}</td>
+            <td>{{ blog.updated_time }}</td>
             <td>
               <a href="javascript:;">编辑</a>
               <a href="javascript:;">删除</a>
@@ -85,28 +91,55 @@ export default {
   name: 'blogList',
   data () {
     return {
-      page: null,
-      count: null
+      blog_list: {
+        page: null,
+        count: null,
+        data: []
+      },
+      blog_kind_list: {
+        page: null,
+        count: null,
+        data: []
+      }
     };
   },
   components: { panelTable },
   created () {
     this.getBlogKindList();
+    this.getBlogList();
   },
   methods: {
+    // 获取 博客类型列表
     getBlogKindList (page = 1, count = 10) {
-      this.$http.post('/api/get_blog_king_list', {
+      this.$http.post('/api/get_blog_kind_list', {
         page, count
       }).then(res => {
         if (res.data.code == 0) {
-          this.page = page;
-          this.count = count;
+          this.blog_kind_list.page = page;
+          this.blog_kind_list.count = count;
+          this.blog_kind_list.data = res.data.data;
         } else {
           this.$warn(res.data.msg);
         }
       }).catch(error => {
         this.$warn('出现异常');
       });;
+    },
+    // 获取 博客列表
+    getBlogList (page = 1, count = 10) {
+      this.$http.post('/api/get_blog_list', {
+        page, count
+      }).then(res => {
+        if (res.data.code == 0) {
+          this.blog_list.page = page;
+          this.blog_list.count = count;
+          this.blog_list.data = res.data.data;
+        } else {
+          this.$warn(res.data.msg);
+        }
+      }).catch(error => {
+        this.$warn('出现异常');
+      });
     }
   }
 };
