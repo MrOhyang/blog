@@ -10,6 +10,7 @@ import article from '@/pages/article/article.vue'
 // 后台管理页面相关
 import admin from '@/pages/admin/admin.vue'
 import blogList from '@/pages/admin/blogList.vue'
+import addblog from '@/pages/admin/addBlog.vue'
 
 Vue.use(Router);
 
@@ -35,6 +36,10 @@ const router = new Router({
         {
           path: 'bloglist',
           component: blogList
+        }
+        ,{
+          path: 'addblog',
+          component: addblog
         }
         ,{
           path: '',

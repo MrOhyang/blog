@@ -23,9 +23,5 @@ export default {
 </script>
 
 <style lang="less">
-.admin-wrapper{
-  .admin-cont-wrapper{
-    padding-left: 280px;
-  }
-}
+@import '../../assets/less/admin.less';
 </style>

@@ -5,10 +5,12 @@ import Vuex from 'vuex'
 import Axios from 'axios'
 import _ from 'lodash'
 import moment from 'moment'
+import VueQuillEditor from 'vue-quill-editor'
 import vueDialog from '@/plugins/dialog/vueDialog'
 
 Vue.config.productionTip = false
 Vue.$http = Vue.prototype.$http = Axios
+Vue.use(VueQuillEditor);
 Vue.use(vueDialog);
 
 import router from './router'

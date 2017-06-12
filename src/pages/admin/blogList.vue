@@ -4,7 +4,7 @@
     <div class="cont-block">
       <panelTable>
         <h6 slot="title">博客分类列表</h6>
-        <table class="table-blogkindlist">
+        <table class="table table-blogkindlist">
           <tr>
             <th>博客分类名称</th>
             <th>博客数量</th>
@@ -30,7 +30,7 @@
     <div class="cont-block">
       <panelTable>
         <h6 slot="title">博客列表</h6>
-        <table class="table-bloglist">
+        <table class="table table-bloglist">
           <tr>
             <th>博客标题</th>
             <th>分类</th>
@@ -41,7 +41,7 @@
           </tr>
           <tr v-for="blog in blog_list.data">
             <td>{{ blog.title }}</td>
-            <td>?</td>
+            <td>{{ blog.blog_kind.name }}</td>
             <td>?/?</td>
             <td>{{ blog.created_time }}</td>
             <td>{{ blog.updated_time }}</td>
@@ -57,7 +57,7 @@
     <div class="cont-block">
       <panelTable>
         <h6 slot="title">评论列表</h6>
-        <table class="table-comments">
+        <table class="table table-comments">
           <tr>
             <th>评论者</th>
             <th>内容</th>
@@ -144,63 +144,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-.admin-cont{
-  .cont-block{
-    padding: 20px;
-    // 表格
-    table{
-      width: 100%;
-      text-align: left;
-      border-collapse:collapse;
-      tr{
-        th, td{
-          padding: 8px 16px;
-          border-bottom: 1px #ddd solid;
-        }
-        th{
-          font-weight: normal;
-        }
-        td{
-          font-size: 0.95rem;
-          a{
-            margin-right: 10px;
-            color: #00c;
-          }
-          a:last-child{
-            margin-right: 0;
-          }
-        }
-      }
-    }
-    table.table-blogkindlist{  // 博客分类列表
-      tr{
-        th:nth-child(1){ width: 44% }  // 博客分类名称
-        th:nth-child(2){ width: 18% }  // 博客数量
-        th:nth-child(3){ width: 20% }  // 创建时间
-        th:nth-child(4){ width: 18% }  // 操作
-      }
-    }
-    table.table-bloglist{  // 博客列表
-      tr{
-        th:nth-child(1){ width: 28% }  // 博客标题
-        th:nth-child(2){ width: 18% }  // 分类
-        th:nth-child(3){ width: 14% }  // 浏览/评论数
-        th:nth-child(4){ width: 14% }  // 创建时间
-        th:nth-child(5){ width: 14% }  // 修改时间
-        th:nth-child(6){ width: 12% }  // 操作
-      }
-    }
-    table.table-comments{  // 评论列表
-      tr{
-        th:nth-child(1){ width: 18% }  // 评论者
-        th:nth-child(2){ width: 32% }  // 内容
-        th:nth-child(3){ width: 24% }  // 所在博客
-        th:nth-child(4){ width: 14% }  // 评论时间
-        th:nth-child(5){ width: 12% }  // 操作
-      }
-    }
-  }
-}
-</style>
