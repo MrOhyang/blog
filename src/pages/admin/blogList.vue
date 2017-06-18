@@ -91,12 +91,12 @@ export default {
   name: 'blogList',
   data () {
     return {
-      blog_list: {
+      blog_list: {  // 博客 列表
         page: null,
         count: null,
         data: []
       },
-      blog_kind_list: {
+      blog_kind_list: {  // 博客 类型 列表
         page: null,
         count: null,
         data: []
